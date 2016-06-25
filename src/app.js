@@ -1,12 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './components/App';
+// Before you do any rendering, initialize the plugin
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
 
-class Dummy extends React.Component {
-  render() {
-    return (
-      <h1>Hola mundo</h1>
-    );
-  }
-}
-
-ReactDOM.render(<Dummy />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));

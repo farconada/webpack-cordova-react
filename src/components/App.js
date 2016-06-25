@@ -1,10 +1,14 @@
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from './AppBar';
+import Tabs from './Tabs';
 
 const App = () => (
     <MuiThemeProvider>
-        <AppBar />
+        <div>
+            <AppBar />
+            <Tabs />
+        </div>
     </MuiThemeProvider>
 );
 
