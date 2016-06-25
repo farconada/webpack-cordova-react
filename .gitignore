@@ -34,3 +34,4 @@ resources/signing
 node_modules/
 www/app.js
 www/app.js.map
+.idea
