@@ -1,15 +1,28 @@
 import React from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from './AppBar';
-import Tabs from './Tabs';
+import { connect } from 'react-redux'
 
-const App = () => (
-    <MuiThemeProvider>
-        <div>
-            <AppBar />
-            <Tabs />
-        </div>
-    </MuiThemeProvider>
-);
+class App extends React.Component {
+    render() {
+        const childrenWithProps = React.Children.map(this.props.children,
+            (child) => React.cloneElement(child, {
+                cards: this.props.cards
+            })
+        );
+        return (
+            <div>
+                <AppBar pendingNotifications={this.props.pendingNotifications}/>
+                {childrenWithProps}
+            </div>
+        );
+    }
+}
 
-export default App;
+const mapStateToProps = (state) => {
+    return {
+        pendingNotifications: state.pendingNotifications,
+        cards: [1,2]
+    }
+};
+
+export default connect(mapStateToProps)(App);
