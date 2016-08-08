@@ -12,6 +12,7 @@
   "dependencies": {
     "babel": "^6.5.2",
     "babel-core": "^6.10.4",
+    "firebase": "^3.2.1",
     "material-ui": "0.15.1",
     "node-polyglot": "2.0.0",
     "react": "^15.1.0",

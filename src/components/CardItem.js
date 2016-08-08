@@ -41,7 +41,7 @@ const CardItem = ({style, card, onSaveClick}) => (
     </Card>
 );
 
-const mapStateToProps = () => {};
+const mapStateToProps = () => {return {}};
 
 const mapDispatchToProps = (dispatch) => {
     return {
