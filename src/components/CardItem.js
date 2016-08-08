@@ -7,9 +7,10 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import FavoriteBorderIcon from 'material-ui/svg-icons/action/favorite-border';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import { connect } from 'react-redux';
 
 
-const CardItem = ({style, card}) => (
+const CardItem = ({style, card, onSaveClick}) => (
     <Card style={style}>
         <CardMedia>
             <img src="http://lorempixel.com/600/337/nature/"/>
@@ -23,7 +24,7 @@ const CardItem = ({style, card}) => (
         </CardText>
         <Divider />
         <CardActions>
-            <FlatButton label="Guardar" icon={<FavoriteBorderIcon />}/>
+            <FlatButton label="Guardar" icon={<FavoriteBorderIcon />} onClick={() => onSaveClick(card)}/>
             <IconMenu
                 style={{float: 'right'}}
                 iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
@@ -40,5 +41,19 @@ const CardItem = ({style, card}) => (
     </Card>
 );
 
+const mapStateToProps = () => {};
 
-export default CardItem;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onSaveClick: (card) => {
+            dispatch({type: 'INC_PENDING'})
+        }
+    }
+};
+
+const CardItemContainer = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(CardItem);
+
+export default CardItemContainer;

@@ -8,15 +8,14 @@ import {Router, Route, browserHistory, IndexRoute} from 'react-router'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Provider} from 'react-redux'
 import {createStore} from 'redux'
+import rootReducer from './reducers/root';
 
 // Before you do any rendering, initialize the plugin
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 
-let store = createStore(() => {
-    return {pendingNotifications: 12};
-}, window.devToolsExtension && window.devToolsExtension());
+let store = createStore(rootReducer, window.devToolsExtension && window.devToolsExtension());
 
 
 ReactDOM.render(
