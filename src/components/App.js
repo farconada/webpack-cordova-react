@@ -21,7 +21,7 @@ class App extends React.Component {
 const mapStateToProps = (state) => {
     return {
         pendingNotifications: state.pendingNotifications,
-        cards: [1,2]
+        cards: state.cards
     }
 };
 

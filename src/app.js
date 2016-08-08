@@ -47,7 +47,7 @@ ReactDOM.render(
   firebase.initializeApp(config);
 
   // Get a reference to the database service
-  var databaseref = firebase.database().ref();
+  var databaseref = firebase.database().ref('events/');
   databaseref.on('value', function(dataSnapshot) {
-    console.log(dataSnapshot);
+    store.dispatch({type: 'EVENTS_CHANGED', events: dataSnapshot.val()});
   });
