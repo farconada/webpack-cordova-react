@@ -4,7 +4,7 @@ var merge = require('webpack-merge');
 var WebpackDevServer = require("webpack-dev-server");
 
 const baseConfig = {
-  entry: './src/app.js',
+  entry: ['babel-polyfill', './src/app.js'],
   output: {
     path: __dirname + '/www',
     filename: 'app.js'
